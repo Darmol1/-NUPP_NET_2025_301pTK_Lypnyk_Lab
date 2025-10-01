@@ -1,0 +1,175 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Aviation.Common
+{
+    // ====== Інтерфейс CRUD ======
+    public interface ICrudService<T>
+    {
+        void Create(T element);
+        T Read(Guid id);
+        IEnumerable<T> ReadAll();
+        void Update(T element);
+        void Remove(T element);
+    }
+
+    // ====== Базовий клас ======
+    public abstract class Entity
+    {
+        public Guid Id { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        public Entity()
+        {
+            Id = Guid.NewGuid();
+            CreatedAt = DateTime.Now;
+        }
+    }
+
+    // ====== Клас Aircraft ======
+    public class Aircraft : Entity
+    {
+        public string Model { get; set; }
+        public int Capacity { get; set; }
+        public double Range { get; set; }
+
+        public static int TotalAircraft;
+
+        static Aircraft()
+        {
+            TotalAircraft = 0;
+        }
+
+        public Aircraft(string model, int capacity, double range)
+        {
+            Model = model;
+            Capacity = capacity;
+            Range = range;
+            TotalAircraft++;
+        }
+
+        public override string ToString()
+        {
+            return $"{Model}, {Capacity} місць, {Range} км дальність";
+        }
+    }
+
+    // ====== Клас Pilot ======
+    public class Pilot : Entity
+    {
+        public string Name { get; set; }
+        public int ExperienceYears { get; set; }
+        public string LicenseNumber { get; set; }
+
+        public Pilot(string name, int experience, string license)
+        {
+            Name = name;
+            ExperienceYears = experience;
+            LicenseNumber = license;
+        }
+
+        public void Fly(Aircraft aircraft)
+        {
+            Console.WriteLine($"Пілот {Name} керує літаком {aircraft.Model}");
+        }
+    }
+
+    // ====== Клас Flight ======
+    public class Flight : Entity
+    {
+        public string Code { get; set; }
+        public Aircraft Aircraft { get; set; }
+        public Pilot Pilot { get; set; }
+        public DateTime DepartureTime { get; set; }
+
+        public Flight(string code, Aircraft aircraft, Pilot pilot, DateTime departure)
+        {
+            Code = code;
+            Aircraft = aircraft;
+            Pilot = pilot;
+            DepartureTime = departure;
+        }
+
+        public override string ToString()
+        {
+            return $"Рейс {Code}: {Aircraft.Model}, пілот {Pilot.Name}, виліт {DepartureTime}";
+        }
+    }
+
+    // ====== Dispatcher (успадковує Pilot) ======
+    public class Dispatcher : Pilot
+    {
+        public string Rank { get; set; }
+
+        public Dispatcher(string name, int exp, string license, string rank)
+            : base(name, exp, license)
+        {
+            Rank = rank;
+        }
+
+        public void ApproveFlight(Flight flight)
+        {
+            Console.WriteLine($"Диспетчер {Name} ({Rank}) підтвердив рейс {flight.Code}");
+        }
+    }
+
+    // ====== Сервіс із подією ======
+    public delegate void FlightAddedHandler(Flight flight);
+
+    public class AviationService
+    {
+        public event FlightAddedHandler OnFlightAdded;
+
+        public void AddFlight(Flight flight)
+        {
+            Console.WriteLine($"Рейс додано: {flight.Code}");
+            OnFlightAdded?.Invoke(flight);
+        }
+    }
+
+    // ====== Метод-розширення ======
+    public static class PilotExtensions
+    {
+        public static bool IsVeteran(this Pilot pilot)
+        {
+            return pilot.ExperienceYears > 10;
+        }
+    }
+
+    // ====== CRUD-сервіс ======
+    public class CrudService<T> : ICrudService<T> where T : Entity
+    {
+        private readonly List<T> _storage = new List<T>();
+
+        public void Create(T element)
+        {
+            _storage.Add(element);
+        }
+
+        public T Read(Guid id)
+        {
+            return _storage.FirstOrDefault(e => e.Id == id);
+        }
+
+        public IEnumerable<T> ReadAll()
+        {
+            return _storage;
+        }
+
+        public void Update(T element)
+        {
+            var existing = Read(element.Id);
+            if (existing != null)
+            {
+                _storage.Remove(existing);
+                _storage.Add(element);
+            }
+        }
+
+        public void Remove(T element)
+        {
+            _storage.Remove(element);
+        }
+    }
+}
