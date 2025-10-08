@@ -1,0 +1,14 @@
+D:\Universitet\ForProg\2025(5semestr)\DotNET\Aviator\Aviator\bin\Debug\net8.0\Aviator.exe
+D:\Universitet\ForProg\2025(5semestr)\DotNET\Aviator\Aviator\bin\Debug\net8.0\Aviator.deps.json
+D:\Universitet\ForProg\2025(5semestr)\DotNET\Aviator\Aviator\bin\Debug\net8.0\Aviator.runtimeconfig.json
+D:\Universitet\ForProg\2025(5semestr)\DotNET\Aviator\Aviator\bin\Debug\net8.0\Aviator.dll
+D:\Universitet\ForProg\2025(5semestr)\DotNET\Aviator\Aviator\bin\Debug\net8.0\Aviator.pdb
+D:\Universitet\ForProg\2025(5semestr)\DotNET\Aviator\Aviator\obj\Debug\net8.0\Aviator.GeneratedMSBuildEditorConfig.editorconfig
+D:\Universitet\ForProg\2025(5semestr)\DotNET\Aviator\Aviator\obj\Debug\net8.0\Aviator.AssemblyInfoInputs.cache
+D:\Universitet\ForProg\2025(5semestr)\DotNET\Aviator\Aviator\obj\Debug\net8.0\Aviator.AssemblyInfo.cs
+D:\Universitet\ForProg\2025(5semestr)\DotNET\Aviator\Aviator\obj\Debug\net8.0\Aviator.csproj.CoreCompileInputs.cache
+D:\Universitet\ForProg\2025(5semestr)\DotNET\Aviator\Aviator\obj\Debug\net8.0\Aviator.dll
+D:\Universitet\ForProg\2025(5semestr)\DotNET\Aviator\Aviator\obj\Debug\net8.0\refint\Aviator.dll
+D:\Universitet\ForProg\2025(5semestr)\DotNET\Aviator\Aviator\obj\Debug\net8.0\Aviator.pdb
+D:\Universitet\ForProg\2025(5semestr)\DotNET\Aviator\Aviator\obj\Debug\net8.0\Aviator.genruntimeconfig.cache
+D:\Universitet\ForProg\2025(5semestr)\DotNET\Aviator\Aviator\obj\Debug\net8.0\ref\Aviator.dll
