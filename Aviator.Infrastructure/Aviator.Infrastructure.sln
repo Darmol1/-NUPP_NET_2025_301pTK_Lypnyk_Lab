@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aviator.Infrastructure", "Aviator.Infrastructure\Aviator.Infrastructure.csproj", "{8A2C670F-531D-41A5-BDC4-8EFEFB9344FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A2C670F-531D-41A5-BDC4-8EFEFB9344FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A2C670F-531D-41A5-BDC4-8EFEFB9344FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A2C670F-531D-41A5-BDC4-8EFEFB9344FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A2C670F-531D-41A5-BDC4-8EFEFB9344FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {122E38AF-D8AB-48CC-8C6C-E30DB4587DC5}
+	EndGlobalSection
+EndGlobal
